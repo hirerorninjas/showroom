@@ -1,0 +1,26 @@
+<%= form_for(@product) do |f| %>
+<div class="control-group">
+  <% if @product.errors.any? %>
+    <div id="error_explanation" style="width:200px";"color:#0000FF">
+      <ul>
+      <% @product.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :product_name , :class => 'control-label' %>
+    <%= f.text_field :name %>
+  </div>
+   <div class="field">
+    <%= f.label :choose_category , :class => 'control-label' %>
+  <%= f.collection_select :category_id, Category.all, :id, :name %>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                products_path, :class => 'btn' %>
+  </div>
+<% end %>
