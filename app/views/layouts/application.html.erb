@@ -23,14 +23,14 @@
             <!-- Logged in as <strong><%= current_user.email %></strong><br> -->
             <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
             <% if current_user.admin == true %>
-              <li><%= link_to 'New Category', new_category_path %></li>
-              <li><%= link_to 'New Product', new_product_path %> </li>
+              <li><%= link_to 'Create Category', new_category_path %></li>
+              <li><%= link_to 'Create Product', new_product_path %> </li>
               <% else  %>
-              <li><%= link_to 'New Product ', new_product_path %> </li>
+              <li><%= link_to 'Create Product ', new_product_path %> </li>
               <% end %>
             <% else %>
               <li><%= link_to "Sign up", new_user_registration_path %> </li>
-              <li><%= link_to "Log in", new_user_session_path %></li>
+              <li><%= link_to "Sign in", new_user_session_path %></li>
           <% end %>
         </ul>
       </div>
