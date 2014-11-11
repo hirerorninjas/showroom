@@ -1,0 +1,20 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Email </th>
+      <th> First name</th>
+      <th> Last name </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @dealers.each do |dealer| %>
+      <tr>
+      	<td><%= dealer.email %></td>
+        <td><%= dealer.first_name %></td>
+        <td><%= dealer.last_name %></td>
+        <td>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
