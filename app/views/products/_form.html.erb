@@ -17,6 +17,11 @@
    <div class="field">
     <%= f.label :choose_category , :class => 'control-label' %>
   <%= f.collection_select :category_id, Category.all, :id, :name %>
+  </div>
+  <div class="field">
+    <%= f.label :image , :class => 'control-label' %>
+  <%= f.file_field :photo %>
+  </div>
 
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>

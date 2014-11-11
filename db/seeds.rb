@@ -11,3 +11,9 @@
     :password_confirmation => "12345678",
     :admin => true
 )
+ dealer = User.create(
+    :email => "dealer@gmail.com",
+    :password => "12345678",
+    :password_confirmation => "12345678",
+    :dealer => true
+)

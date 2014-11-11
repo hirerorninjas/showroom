@@ -25,6 +25,10 @@
             <% if current_user.admin == true %>
               <li><%= link_to 'Create Category', new_category_path %></li>
               <li><%= link_to 'Create Product', new_product_path %> </li>
+              <li><%= link_to 'Show Dealer', new_product_path %> </li>
+              <% elsif current_user.dealer == true %>
+                <li><%= link_to 'Show Products', products_path %></li>
+                <li><%= link_to 'Show Categories', categories_path %></li>
               <% else  %>
               <li><%= link_to 'Create Product ', new_product_path %> </li>
               <% end %>
