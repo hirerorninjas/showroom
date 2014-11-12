@@ -2,7 +2,7 @@ development:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: mysql_development
+  database: mysql_development1
   pool: 5
   username: root
   password: 123456

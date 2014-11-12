@@ -19,7 +19,7 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.new(params[:product])
+    @product = current_user.products.build(params[:product])
     @product.save
     respond_with(@product)
   end

@@ -7,7 +7,7 @@ Showroom::Application.routes.draw do
 
   devise_for :users
 
-  #get "welcome/index"
+  get "welcome/show_dealer"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
