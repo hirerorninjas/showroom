@@ -19,9 +19,14 @@ class CategoriesController < ApplicationController
   end
 
   def create
-    @category = Category.new(params[:category])
-    @category.save
-    respond_with(@category)
+    if current_user.admin?
+      @category = Category.new(params[:category])
+      @category.save
+      respond_with(@category)
+    else 
+      render :text => 'You are not authorised to create the product at this time', :status => '404', :layout => true
+      #redirect_to action: :index
+    end
   end
 
   def update

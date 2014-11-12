@@ -19,9 +19,14 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = current_user.products.build(params[:product])
-    @product.save
-    respond_with(@product)
+    if current_user.admin?
+      @product = current_user.products.build(params[:product])
+      @product.save
+      respond_with(@product)
+    else 
+      render :text => "<h2> You are not authorised to create the product at this time!</h2>", :status => '404', :layout => true
+      #redirect_to action: :index
+    end
   end
 
   def update

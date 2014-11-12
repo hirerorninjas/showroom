@@ -22,10 +22,12 @@
           <% if user_signed_in? %>
             <!-- Logged in as <strong><%= current_user.email %></strong><br> -->
             <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
-            <% if current_user.admin == true %>
+            <% if current_user.admin? %>
               <li><%= link_to 'Create Category', new_category_path %></li>
               <li><%= link_to 'Create Product', new_product_path %> </li>
-              <li><%= link_to 'Show Dealer', welcome_show_dealer_path %> </li>
+              <li><%= link_to 'Show Dealers', welcome_show_dealer_path %> </li>
+              <li><%= link_to 'Show Categories', categories_path %> </li>
+              <li><%= link_to 'Show Products', products_path %></li>
               <% elsif current_user.dealer == true %>
                 <li><%= link_to 'Show Products', products_path %></li>
                 <li><%= link_to 'Show Categories', categories_path %></li>
