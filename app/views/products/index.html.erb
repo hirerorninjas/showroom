@@ -2,6 +2,13 @@
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
+<%= form_tag products_path, :method => 'get' do %>  
+  <p> 
+    <%= text_field_tag :search, params[:search] %>  
+    <%= submit_tag "Search", :name => nil, :class => 'btn btn-mini btn-danger' %>  
+  </p>  
+<% end %>
+
 <table class="table table-striped">
   <thead>
     <tr>
@@ -68,18 +75,18 @@
 
     
 <script>
-// $(document).ready(function(){
-//   $("#like_btn").click(function(){
-//  window.location.reload();
-//   });
-//   $("#unlike_btn").click(function(){
-//  window.location.reload();
-//   });
-// });
-
-$(document).ready(function() {
-  setTimeout(function() {
-    window.location.reload();
-  }, 4000);
+$(document).ready(function(){
+  $("#like_btn").click(function(){
+ window.location.reload();
+  });
+  $("#unlike_btn").click(function(){
+ window.location.reload();
+  });
 });
+
+// $(document).ready(function() {
+//   setTimeout(function() {
+//     window.location.reload();
+//   }, 4000);
+// });
 </script>

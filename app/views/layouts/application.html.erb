@@ -32,7 +32,8 @@
                 <li><%= link_to 'Show Products', products_path %></li>
                 <li><%= link_to 'Show Categories', categories_path %></li>
               <% else  %>
-              <li><%= link_to 'Create Product ', new_product_path %> </li>
+              <li><%= link_to "Sign up", new_user_registration_path %> </li>
+              <li><%= link_to "Sign in", new_user_session_path %></li>
               <% end %>
             <% else %>
               <li><%= link_to "Sign up", new_user_registration_path %> </li>
