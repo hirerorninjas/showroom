@@ -2,7 +2,7 @@ class CategoriesController < ApplicationController
   before_filter :set_category, only: [:show, :edit, :update, :destroy]
   respond_to :html, :xml, :json
   def index
-    @categories = Category.paginate(page: params[:page], per_page: 2) 
+    @categories = Category.paginate(page: params[:page], per_page: 3) 
     respond_with(@categories)
   end
 

@@ -19,5 +19,5 @@
     :password_confirmation => "12345678",
     :first_name => "dealer",
     :last_name => "dealer",
-    :dealer => true
+    :dealer => "dealer"
 )

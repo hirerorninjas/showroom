@@ -13,8 +13,10 @@
       <th><%= model_class.human_attribute_name(:price) %></th>
       <th><%= model_class.human_attribute_name(:quantity) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
       <% if current_user.admin? %>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+        <% end %>
+      <% if current_user.dealer? && !current_user.admin? %>
       <th><%= model_class.human_attribute_name(:deal) %></th>
       <% end %>
     </tr>
@@ -43,10 +45,12 @@
         <% end %>
 
         <td>
-          <% if product.id != product.likes.collect(&:product_id).first.to_i %>
-          <div id ="like_btn"><%= link_to "Like", all_likes_path(product.id) , method: :post, remote: true %></div>
+          <% if current_user.dealer? && !current_user.admin? %>
+          <% if product.id != product.likes.collect(&:product_id).last.to_i %>
+          <div id ="like_btn"><%= link_to "Deal", all_likes_path(product.id) , method: :post, remote: true, :class => 'btn btn-mini' %></div>
           <% else %>
-            <div id ="unlike_btn"><%= link_to "Unlike", unlike_likes_path(product.id) , method: :post, remote: true %></div>
+            <div id ="unlike_btn"><%= link_to "Not Deal", unlike_likes_path(product.id) , method: :post, remote: true , :class => 'btn btn-mini'%></div>
+          <% end %>
           <% end %>
         </td> 
         
@@ -64,12 +68,18 @@
 
     
 <script>
-$(document).ready(function(){
-  $("#like_btn").click(function(){
- window.location.reload();
-  });
-  $("#unlike_btn").click(function(){
- window.location.reload();
-  });
+// $(document).ready(function(){
+//   $("#like_btn").click(function(){
+//  window.location.reload();
+//   });
+//   $("#unlike_btn").click(function(){
+//  window.location.reload();
+//   });
+// });
+
+$(document).ready(function() {
+  setTimeout(function() {
+    window.location.reload();
+  }, 4000);
 });
 </script>

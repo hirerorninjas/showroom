@@ -52,7 +52,7 @@ class ProductsController < ApplicationController
     if !Like.exists?(product_id: params[:id])
     #@deal = @deal.update_attributes(:deal => 'true')
      @test = Like.create(:user_id => current_user.id, :product_id => params[:id])
-     cookies[:random] ||= rand(10000)
+     #cookies[:random] ||= rand(10000)
     respond_with(@test)
     end
   end
@@ -63,7 +63,7 @@ class ProductsController < ApplicationController
      #@test = Like.create(:user_id => current_user.id, :product_id => params[:id])
      # if Like.exists?(product_id: params[:id])
      @destroy_like = Like.where(:product_id => params[:id].to_i).destroy_all
-     cookies[:random] ||= rand(10000)
+     #cookies[:random] ||= rand(10000)
     respond_with(@destroy_like)
   #end
 end
