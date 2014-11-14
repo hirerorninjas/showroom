@@ -1,14 +1,15 @@
 Showroom::Application.routes.draw do
+  resources :likes
+
   resources :products
-
-
   resources :categories
-
-
   devise_for :users
 
   get "welcome/show_dealer"
-
+  match "products/:id/all_likes"=> 'products#all_likes', :as => :all_likes
+  match "products/:id/unlike_likes"=> 'products#unlike_likes', :as => :unlike_likes
+ # match 'products/:id/block_deal' => 'products#block_deal', :as => :block_deal
+  # match 'products/:id/deal' => 'products#deal', :as => :deal
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
