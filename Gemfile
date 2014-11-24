@@ -40,4 +40,4 @@ gem "will_paginate", "~> 3.0.4"
 # gem 'capistrano'
 
 # To use debugger
-gem 'debugger'
+#gem 'debugger'
