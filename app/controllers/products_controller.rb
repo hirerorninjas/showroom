@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   before_filter :set_product, only: [:show, :edit, :update, :destroy]
   respond_to :html, :xml, :json
+  caches_page :index
   def index
     if params[:search]
       @products = Product.search(params[:search]).paginate(:per_page => 3, :page => params[:page])
